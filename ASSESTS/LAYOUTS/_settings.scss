@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "inter-bold", sans-serif;
+    src: url(../FONTS/Inter-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "merriweather", serif;
+    src: url(../FONTS/Merriweather-Light.ttf);
+}
+
+$font1:inter-bold, sans-serif;
+$font2: merri, sans-serif;
+$black1: rgb(17, 17, 17);
+$white1: rgb(243, 243, 243);
+$grey1:rgb(209, 209, 209);
+$grey2:rgb(233, 233, 233);
+$grey3:rgb(105, 105, 105);
+
+@mixin title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: $font1;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+li{
+    list-style: none;
+}
+a,
+a:visited{
+    color:$white1
+}
+body{
+    background: url(../IMG/bg.jpg) center/cover fixed;
+    text-align: center;
+    font-family:$font2;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    &:before{
+        content:"";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: $black1;
+        animation:animBefore 10s ease forwards;
+        animation-delay: 0.15s;
+
+       @keyframes animBefore{
+        to{
+            opacity:0
+        }
+       }
+    }
+}
+.btn{
+    background: none;
+    border: 2px solid $black1;
+    height: 45px;
+    width: 170px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    @include title;
+    transition:0.3s ease;
+    border-radius: 3px;
+
+    &:hover{
+        transform: scale(1.1);
+        color:skyblue;
+        border:2px solid skyblue;
+    }
+}
